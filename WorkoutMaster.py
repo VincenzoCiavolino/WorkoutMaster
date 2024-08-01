@@ -36,12 +36,13 @@ def GenerateTodaysWorkout(Push) :
 
 def InsertTodaysWorkout():
   loop = True
-  ok1 = True
-  ok2 = True
+  tab = []
   while loop: 
+    ok1 = True
+    ok2 = True
     row = []
     while ok1:
-      print("Select category:")
+      print("\nSelect category:")
       print("1. Push\n2. Pull\n3. Legs\n")
       cat = int(input())
       if cat < 4:
@@ -56,18 +57,19 @@ def InsertTodaysWorkout():
         ok2 = False
       else:
         print("Invalid Input, retry\n")
-    row.append(Ex[cat][e-1])
+    row.append(Ex[cat-1][e-1])
     print("Insert number of sets:")
     sets = int(input())    
     row.append(sets)
     print("Insert number of reps:")
     reps = int(input())
     row.append(reps)
-
+    tab.append(row)
     print("\nFinito?")
     loop = bool(input('Press any key to continue or just press Enter to finish'))    
     
-    print(row)
+    print("\nCurrent Table of workout:\n")
+    print(tab)
 # How to insert row pandas dataframe
     
 InsertTodaysWorkout()
